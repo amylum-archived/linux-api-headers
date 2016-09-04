@@ -1,0 +1,23 @@
+name 'linux-api-headers'
+org 'amylum'
+
+kernel_url_base = 'https://cdn.kernel.org/pub/linux/kernel/v4.x/testing'
+kernel_version = '4.8-rc4'
+
+source(
+  type: 'tar',
+  url: "#{kernel_url_base}/linux-#{kernel_version}.tar.xz"
+)
+
+harden
+
+build do
+  run 'make mrproper'
+  run 'make headers_check'
+  run "make INSTALL_HDR_PATH=#{releasedir}/usr headers_install"
+  rm "#{releasedir}/usr/include/drm"
+end
+
+test do
+  # TODO: add tests
+end
