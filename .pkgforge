@@ -1,6 +1,8 @@
 name 'linux-api-headers'
 org 'amylum'
 
+license 'COPYING'
+
 kernel_url_base = 'https://cdn.kernel.org/pub/linux/kernel/v4.x/testing'
 kernel_version = '4.8-rc4'
 
@@ -16,6 +18,7 @@ build do
   run 'make headers_check'
   run "make INSTALL_HDR_PATH=#{releasedir}/usr headers_install"
   rm "#{releasedir}/usr/include/drm"
+  rm Dir.glob(["#{releasedir}/**/.install", "#{releasedir}/**/..install.cmd"])
 end
 
 test do
