@@ -17,8 +17,8 @@ build do
   run 'make mrproper'
   run 'make headers_check'
   run "make INSTALL_HDR_PATH=#{releasedir}/usr headers_install"
-  rm "#{releasedir}/usr/include/drm"
-  rm Dir.glob(["#{releasedir}/**/.install", "#{releasedir}/**/..install.cmd"])
+  rm 'usr/include/drm'
+  run "rm -rf #{Dir.glob(["#{releasedir}/**/.install", "#{releasedir}/**/..install.cmd"])}"
 end
 
 test do
