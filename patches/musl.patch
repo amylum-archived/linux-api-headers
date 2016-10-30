@@ -1,0 +1,80 @@
+diff -ur a/usr/include/linux/if_ether.h b/usr/include/linux/if_ether.h
+--- a/usr/include/linux/if_ether.h	2016-10-29 21:21:32.000000000 -0700
++++ b/usr/include/linux/if_ether.h	2016-10-29 21:28:33.000000000 -0700
+@@ -22,6 +22,7 @@
+ #define _LINUX_IF_ETHER_H
+ 
+ #include <linux/types.h>
++#include <linux/libc-compat.h>
+ 
+ /*
+  *	IEEE 802.3 Ethernet magic constants.  The frame sizes omit the preamble
+@@ -138,11 +139,12 @@
+  *	This is an Ethernet frame header.
+  */
+ 
++#if __UAPI_DEF_ETHHDR
+ struct ethhdr {
+ 	unsigned char	h_dest[ETH_ALEN];	/* destination eth addr	*/
+ 	unsigned char	h_source[ETH_ALEN];	/* source ether addr	*/
+ 	__be16		h_proto;		/* packet type ID field	*/
+ } __attribute__((packed));
+-
++#endif
+ 
+ #endif /* _LINUX_IF_ETHER_H */
+diff -ur a/usr/include/linux/libc-compat.h b/usr/include/linux/libc-compat.h
+--- a/usr/include/linux/libc-compat.h	2016-10-29 21:21:32.000000000 -0700
++++ b/usr/include/linux/libc-compat.h	2016-10-29 21:26:38.000000000 -0700
+@@ -49,7 +49,19 @@
+ #define _LIBC_COMPAT_H
+ 
+ /* We have included glibc headers... */
+-#if defined(__GLIBC__)
++#ifndef __KERNEL__
++
++#ifdef _NETINET_IF_ETHER_H /* musl */
++#define __UAPI_DEF_ETHHDR 0
++#else /* glibc uses __NETINET_IF_ETHER_H, and includes the kernel header. */
++#define __UAPI_DEF_ETHHDR 1
++#endif
++
++#ifdef _NETINET_TCP_H /* musl */
++#define __UAPI_DEF_TCPHDR 0
++#else
++#define __UAPI_DEF_TCPHDR 1
++#endif
+ 
+ /* Coordinate with glibc net/if.h header. */
+ #if defined(_NET_IF_H) && defined(__USE_MISC)
+@@ -208,6 +220,6 @@
+ /* Definitions for xattr.h */
+ #define __UAPI_DEF_XATTR		1
+ 
+-#endif /* __GLIBC__ */
++#endif /* __KERNEL__ */
+ 
+ #endif /* _LIBC_COMPAT_H */
+diff -ur a/usr/include/linux/tcp.h b/usr/include/linux/tcp.h
+--- a/usr/include/linux/tcp.h	2016-10-29 21:21:32.000000000 -0700
++++ b/usr/include/linux/tcp.h	2016-10-29 21:27:37.000000000 -0700
+@@ -18,9 +18,11 @@
+ #define _LINUX_TCP_H
+ 
+ #include <linux/types.h>
++#include <linux/libc-compat.h>
+ #include <asm/byteorder.h>
+ #include <linux/socket.h>
+ 
++#if __UAPI_DEF_TCPHDR
+ struct tcphdr {
+ 	__be16	source;
+ 	__be16	dest;
+@@ -55,6 +57,7 @@
+ 	__sum16	check;
+ 	__be16	urg_ptr;
+ };
++#endif
+ 
+ /*
+  *	The union cast uses a gcc extension to avoid aliasing problems
