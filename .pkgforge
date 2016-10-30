@@ -13,12 +13,13 @@ source(
 
 harden
 
+patch 'musl.patch'
+
 build do
   run 'make mrproper'
   run 'make headers_check'
   run "make INSTALL_HDR_PATH=#{releasedir}/usr headers_install"
   rm 'usr/include/drm'
-  patch 'musl.patch'
   run "rm -rf #{Dir.glob(["#{releasedir}/**/.install", "#{releasedir}/**/..install.cmd"])}"
 end
 

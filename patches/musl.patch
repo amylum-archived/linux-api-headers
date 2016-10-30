@@ -1,6 +1,6 @@
-diff -ur a/usr/include/linux/if_ether.h b/usr/include/linux/if_ether.h
---- a/usr/include/linux/if_ether.h	2016-10-29 21:21:32.000000000 -0700
-+++ b/usr/include/linux/if_ether.h	2016-10-29 21:28:33.000000000 -0700
+diff -ur a/include/uapi/linux/if_ether.h b/include/uapi/linux/if_ether.h
+--- a/include/uapi/linux/if_ether.h	2016-10-29 21:21:32.000000000 -0700
++++ b/include/uapi/linux/if_ether.h	2016-10-29 21:28:33.000000000 -0700
 @@ -22,6 +22,7 @@
  #define _LINUX_IF_ETHER_H
  
@@ -23,9 +23,9 @@ diff -ur a/usr/include/linux/if_ether.h b/usr/include/linux/if_ether.h
 +#endif
  
  #endif /* _LINUX_IF_ETHER_H */
-diff -ur a/usr/include/linux/libc-compat.h b/usr/include/linux/libc-compat.h
---- a/usr/include/linux/libc-compat.h	2016-10-29 21:21:32.000000000 -0700
-+++ b/usr/include/linux/libc-compat.h	2016-10-29 21:26:38.000000000 -0700
+diff -ur a/include/uapi/linux/libc-compat.h b/include/uapi/linux/libc-compat.h
+--- a/include/uapi/linux/libc-compat.h	2016-10-29 21:21:32.000000000 -0700
++++ b/include/uapi/linux/libc-compat.h	2016-10-29 21:26:38.000000000 -0700
 @@ -49,7 +49,19 @@
  #define _LIBC_COMPAT_H
  
@@ -55,9 +55,9 @@ diff -ur a/usr/include/linux/libc-compat.h b/usr/include/linux/libc-compat.h
 +#endif /* __KERNEL__ */
  
  #endif /* _LIBC_COMPAT_H */
-diff -ur a/usr/include/linux/tcp.h b/usr/include/linux/tcp.h
---- a/usr/include/linux/tcp.h	2016-10-29 21:21:32.000000000 -0700
-+++ b/usr/include/linux/tcp.h	2016-10-29 21:27:37.000000000 -0700
+diff -ur a/include/uapi/linux/tcp.h b/include/uapi/linux/tcp.h
+--- a/include/uapi/linux/tcp.h	2016-10-29 21:21:32.000000000 -0700
++++ b/include/uapi/linux/tcp.h	2016-10-29 21:27:37.000000000 -0700
 @@ -18,9 +18,11 @@
  #define _LINUX_TCP_H
  
