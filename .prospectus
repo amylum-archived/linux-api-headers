@@ -1,9 +1,11 @@
+require 'open-uri'
+require 'json'
+
 item do
   expected do
-    url_xpath
-    url 'https://www.kernel.org/feeds/kdist.xml'
-    xpath '/html/body/rss/channel/item[1]/title'
-    regex /([\w.-]*): mainline/
+    static
+    url = 'https://www.kernel.org/releases.json'
+    set JSON.parse(open(url).read)['latest_stable']['version']
   end
 
   actual do
