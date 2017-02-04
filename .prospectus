@@ -5,11 +5,11 @@ item do
   expected do
     static
     url = 'https://www.kernel.org/releases.json'
-    set JSON.parse(open(url).read)['latest_stable']['version']
+    set JSON.parse(open(url).read)['latest_stable']['version'].sub(/\.\d+$/, '')
   end
 
   actual do
     git_tag
-    regex /^(.*)-\d+$/
+    regex /^(.*).\d+-\d+$/
   end
 end
