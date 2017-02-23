@@ -4,7 +4,7 @@ org 'amylum'
 license 'COPYING'
 
 kernel_url_base = 'https://cdn.kernel.org/pub/linux/kernel/v4.x'
-kernel_version = '4.9.7'
+kernel_version = '4.10'
 
 source(
   type: 'tar',
