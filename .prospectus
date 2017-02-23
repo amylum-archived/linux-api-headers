@@ -5,7 +5,8 @@ item do
   expected do
     static
     url = 'https://www.kernel.org/releases.json'
-    set JSON.parse(open(url).read)['latest_stable']['version'].sub(/\.\d+$/, '')
+    full_version = JSON.parse(open(url).read)['latest_stable']['version']
+    set full_version.split('.').take(2).join('.')
   end
 
   actual do
