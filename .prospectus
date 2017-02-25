@@ -11,6 +11,6 @@ item do
 
   actual do
     git_tag
-    regex /^(.*).\d+-\d+$/
+    regex /^(\d+.\d+)(?:.\d+)?-\d+$/
   end
 end
