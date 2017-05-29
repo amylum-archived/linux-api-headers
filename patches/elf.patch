@@ -1,0 +1,11 @@
+--- a/include/uapi/linux/elf-em.h	2017-04-30 19:47:48.000000000 -0700
++++ b/include/uapi/linux/elf-em.h	2017-05-29 15:27:35.000000000 -0700
+@@ -42,7 +42,7 @@
+ #define EM_TILEGX	191	/* Tilera TILE-Gx */
+ #define EM_BPF		247	/* Linux BPF - in-kernel virtual machine */
+ #define EM_FRV		0x5441	/* Fujitsu FR-V */
+-#define EM_AVR32	0x18ad	/* Atmel AVR32 */
++#define EM_AVR32	185	/* Atmel AVR32 */
+ 
+ /*
+  * This is an interim value that we will use until the committee comes
