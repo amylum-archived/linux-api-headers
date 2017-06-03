@@ -15,6 +15,7 @@ harden
 
 patch 'musl.patch'
 patch 'elf.patch'
+patch 'if_arp.patch'
 
 build do
   run 'make mrproper'

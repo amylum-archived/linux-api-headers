@@ -1,0 +1,18 @@
+--- a/include/linux/if_arp.h	2017-04-30 19:47:48.000000000 -0700
++++ b/include/linux/if_arp.h	2017-06-01 20:47:30.000000000 -0700
+@@ -22,6 +22,8 @@
+  */
+ #ifndef _LINUX_IF_ARP_H
+ #define _LINUX_IF_ARP_H
++#ifndef _NET_IF_ARP_H
++#define _NET_IF_ARP_H
+ 
+ #include <linux/skbuff.h>
+ #include <uapi/linux/if_arp.h>
+@@ -59,5 +61,5 @@
+ 		return true;
+ 	}
+ }
+-
++#endif	/* _NET_IF_ARP_H */
+ #endif	/* _LINUX_IF_ARP_H */
