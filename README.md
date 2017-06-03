@@ -5,7 +5,7 @@ linux-api-headers
 [![GitHub release](https://img.shields.io/github/release/amylum/linux-api-headers.svg)](https://github.com/amylum/linux-api-headers/releases)
 [![GPL2 Licensed](http://img.shields.io/badge/license-GPL2-green.svg)](https://tldrlegal.com/license/gnu-general-public-license-v2)
 
-Package repo for [linux-api-headers](https://kernel.org). This packages specifically the headers for compiling userspace codebases.
+Package repo for [linux-api-headers](https://kernel.org). This packages specifically the headers for compiling userspace codebases, sanitized for usage with [musl](http://www.musl-libc.org/)
 
 ## Usage
 
