@@ -1,6 +1,12 @@
 require 'open-uri'
 require 'json'
 
+Prospectus.extra_dep('file', 'prospectus_pkgforge')
+Prospectus.extra_dep('file', 'prospectus_circleci')
+
+pkgforge = PkgForge.load_from_file
+my_slug = pkgforge.org + '/' + pkgforge.name
+
 item do
   expected do
     static
@@ -13,4 +19,7 @@ item do
     git_tag
     regex /^(\d+.\d+)(?:.\d+)?-\d+$/
   end
+
+  extend ProspectusPkgforge::DepItems
+  extend ProspectusCircleci::Build.new(my_slug)
 end
