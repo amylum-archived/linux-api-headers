@@ -8,7 +8,8 @@ kernel_version = '4.13'
 
 source(
   type: 'tar',
-  url: "#{kernel_url_base}/linux-#{kernel_version}.tar.xz"
+  url: "#{kernel_url_base}/linux-#{kernel_version}.tar.xz",
+  checksum: '2db3d6066c3ad93eb25b973a3d2951e022a7e975ee2fa7cbe5bddf84d9a49a2c'
 )
 
 harden
