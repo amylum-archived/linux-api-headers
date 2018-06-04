@@ -4,12 +4,12 @@ org 'amylum'
 license 'COPYING'
 
 kernel_url_base = 'https://cdn.kernel.org/pub/linux/kernel/v4.x'
-kernel_version = '4.16'
+kernel_version = '4.17'
 
 source(
   type: 'tar',
   url: "#{kernel_url_base}/linux-#{kernel_version}.tar.xz",
-  checksum: '63f6dc8e3c9f3a0273d5d6f4dca38a2413ca3a5f689329d05b750e4c87bb21b9'
+  checksum: '9faa1dd896eaea961dc6e886697c0b3301277102e5bc976b2758f9a62d3ccd13'
 )
 
 harden
