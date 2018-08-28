@@ -1,7 +1,7 @@
 linux-api-headers
 ==========
 
-[![Build Status](https://img.shields.io/circleci/project/amylum/linux-api-headers/master.svg)](https://circleci.com/gh/amylum/linux-api-headers)
+[![Build Status](https://img.shields.io/travis/com/amylum/linux-api-headers.svg)](https://travis-ci.com/amylum/linux-api-headers)
 [![GitHub release](https://img.shields.io/github/release/amylum/linux-api-headers.svg)](https://github.com/amylum/linux-api-headers/releases)
 [![GPL2 Licensed](http://img.shields.io/badge/license-GPL2-green.svg)](https://tldrlegal.com/license/gnu-general-public-license-v2)
 
